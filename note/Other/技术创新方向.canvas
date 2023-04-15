@@ -1,0 +1,21 @@
+{
+	"nodes":[
+		{"type":"text","text":"空间隔离技术","id":"dcf526b3705d30b5","x":140,"y":0,"width":250,"height":60},
+		{"type":"text","text":"P2P应用于文件分享","id":"62efe0fd7577822a","x":140,"y":-220,"width":250,"height":60},
+		{"type":"text","text":"基于P2P与空闲存储空间共享的网盘","id":"76f44a4bfa02e1d5","x":140,"y":200,"width":250,"height":60},
+		{"type":"text","text":"就是一个成熟技术的应用，可以有软件专利，可能有论文","id":"f95e1855ff104d90","x":460,"y":200,"width":280,"height":120},
+		{"type":"text","text":"技术创新方向","id":"21c3e2a0e6bffe54","x":-200,"y":0,"width":250,"height":60},
+		{"type":"text","text":"基本属于从0开始的技术创新，可以有 专利、论文","id":"6e2c59c8bf391a7a","x":460,"y":30,"width":280,"height":120},
+		{"type":"text","text":"沙箱技术","id":"cdda3380e0bf494e","x":460,"y":-80,"width":160,"height":60},
+		{"type":"text","text":"技术应用，只能有软件专利","id":"52e4b37bec2e08ca","x":460,"y":-240,"width":250,"height":100}
+	],
+	"edges":[
+		{"id":"3e0df08e0e73a116","fromNode":"21c3e2a0e6bffe54","fromSide":"right","toNode":"62efe0fd7577822a","toSide":"left"},
+		{"id":"a5ca238ce3dda57f","fromNode":"21c3e2a0e6bffe54","fromSide":"right","toNode":"dcf526b3705d30b5","toSide":"left"},
+		{"id":"a31f1d6b394c05a6","fromNode":"21c3e2a0e6bffe54","fromSide":"right","toNode":"76f44a4bfa02e1d5","toSide":"left"},
+		{"id":"7bbfc1bbeabdea18","fromNode":"62efe0fd7577822a","fromSide":"right","toNode":"52e4b37bec2e08ca","toSide":"left"},
+		{"id":"6a6b727136eeaccd","fromNode":"dcf526b3705d30b5","fromSide":"right","toNode":"6e2c59c8bf391a7a","toSide":"left"},
+		{"id":"94ff4a4097b13a07","fromNode":"76f44a4bfa02e1d5","fromSide":"right","toNode":"f95e1855ff104d90","toSide":"left"},
+		{"id":"5a12041441e9204d","fromNode":"dcf526b3705d30b5","fromSide":"right","toNode":"cdda3380e0bf494e","toSide":"left"}
+	]
+}
