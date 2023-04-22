@@ -9,7 +9,6 @@
 root用户：root
 root密码：LiuHao2002
 
-
 ## vmware
 虚拟机：ubuntu22
 

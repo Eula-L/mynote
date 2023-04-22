@@ -82,7 +82,7 @@ git status //查看缓冲区状态s
 
 插入图片链接
 
-![](https://liuhao-aliyun-oss.oss-cn-beijing.aliyuncs.com/1662348926027.png)
+![](https://liuhao-aliyun-oss.oss-cn-beijing.aliyuncs.com/1682172018309.png)
 
 插入代码块
 
@@ -158,3 +158,33 @@ Sed
 #include<regex.h>//正则表达式需要的头文件
 
 ```
+
+# 进程
+
+## 进程基础
+
+![](https://liuhao-aliyun-oss.oss-cn-beijing.aliyuncs.com/1682171914150.png)
+
+## 进程的生存环境
+
+![](https://liuhao-aliyun-oss.oss-cn-beijing.aliyuncs.com/1682171957815.png)
+
+## 进程的状态
+
+![](https://liuhao-aliyun-oss.oss-cn-beijing.aliyuncs.com/1682172000218.png)
+
+## 分时复用
+
+![](https://liuhao-aliyun-oss.oss-cn-beijing.aliyuncs.com/1682172018309.png)
+
+## 系统调用
+
+![](https://liuhao-aliyun-oss.oss-cn-beijing.aliyuncs.com/1682172062209.png)
+
+## 进程原语
+
+![](https://liuhao-aliyun-oss.oss-cn-beijing.aliyuncs.com/1682172097896.png)
+
+## 关于父进程的拷贝构造
+
+![](https://liuhao-aliyun-oss.oss-cn-beijing.aliyuncs.com/1682172155420.png)
