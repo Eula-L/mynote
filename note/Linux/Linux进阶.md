@@ -186,5 +186,9 @@ Sed
 ![](https://liuhao-aliyun-oss.oss-cn-beijing.aliyuncs.com/1682172097896.png)
 
 ## 关于父进程的拷贝构造
+新fork:`读时共享，写时复制（父或子修改时，都复制）`
 
 ![](https://liuhao-aliyun-oss.oss-cn-beijing.aliyuncs.com/1682172155420.png)
+
+### CGI扩展接口技术
+CG引方便网站功能拓展和功能迭代维护，在不影响主服务器运行的情况下完成系列操作
