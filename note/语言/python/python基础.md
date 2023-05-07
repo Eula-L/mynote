@@ -181,6 +181,8 @@ calendar 模块提供了很多可以处理日历的函数。
 
 # 函数
 
+## 声明函数
+
 Python 使用 def 关键字来声明函数，格式如下所示：
 
 ```python
@@ -202,6 +204,8 @@ def 函数名():
 def 函数名(*参数名):
 	函数体
 ```
+
+## 匿名函数
 
 我们还可以使用 `lambda` 定义匿名函数，格式如下所示：
 
@@ -257,8 +261,151 @@ Python 中一个以 `.py` 结尾的文件就是一个模块，模块中定义了
 import 包名1.包名2...模块名
 ```
 
-## from ... import ...
+### from ... import ...
 
 ```python
 from 包名1.包名2... import 模块名from 包名1.包名2...模块名 import 变量名/函数名
 ```
+
+
+
+# 面向对象
+
+## 类
+
+### 创建一个类
+
+```python
+class Cat:
+	# 属性
+    color = 'black'
+    # 构造方法
+    def __init__(self, name):
+        self.name = name
+    # 自定义方法
+    def eat(self, food):
+        self.food = food
+        print(self.name, '正在吃'+food)
+```
+
+### 构造方法
+
+ `__init__()` 会在类实例化时自动调用。无论构造方法还是其他方法都需要将 `self` 作为第一个参数，它代表类的实例。
+
+### 私有属性和方法
+
+定义私有属性和方法，声明方式为：在属性名或方法名前加两条下划线
+
+### 类名访问
+
+可以通过类名访问属性，格式为：`类名.属性名`
+比如我们访问 Cat 类的 color 属性，如下所示：
+
+```python
+print('color-->', Cat.color)
+```
+
+外部不能访问私有方法
+
+## 对象
+
+### 创建对象
+
+```python
+# 创建对象
+c = Cat('Tom')
+```
+
+### 对象访问属性和方法
+
+```python
+# 访问属性
+print('name-->', c.name)
+print('color-->', c.color)
+# 调用方法
+c.eat('鱼')
+```
+
+同样，对象也不能访问私有
+
+## 继承
+
+Python 支持类的`继承`，而且支持`多继承`，语法格式为：
+
+```python
+class 基类(子类1, 子类2 ...):
+		...
+```
+
+子类可以`直接重新`父类方法，可以添加自己独有的方法
+
+```python
+# 类的创建
+class Cat:
+    # 属性
+    color = 'black'
+    __cid = '1'
+
+    # 构造方法
+    def __init__(self, name):
+        self.food = None
+        self.name = name
+
+    # 自定义方法
+    def eat(self, food):
+        self.food = food
+        print(self.name, '正在吃' + food)
+
+    # 私有方法
+    def __run(self):
+        pass
+
+
+# 继承的子类
+# 波斯猫类
+class PersianCat(Cat):  # 继承
+    def __init__(self, name):
+        self.name = name
+
+    def eat(self, food):
+        print(self.name, '波斯猫！正在吃' + food)
+
+
+# 加菲猫类
+class GarfieldCat(Cat):
+    def __init__(self, name):
+        self.name = name
+
+    def run(self, speed):
+        print(self.name, '加菲猫！！正在以' + speed + '的速度奔跑')
+
+
+# 单继承
+class SingleCat(PersianCat):
+    # 重写父类方法
+    def eat(self, food):
+        print(self.name, '正在吃' + food, '十分钟后', self.name + '吃饱了')
+
+
+# 多继承
+class MultiCat(PersianCat, GarfieldCat):
+    pass
+
+
+# 调用
+ps = PersianCat('波斯猫0号')
+ps.eat('老鼠')
+
+gf = GarfieldCat('加菲猫0号')
+gf.eat('蛋糕')
+gf.run('100')
+
+sc = SingleCat('波斯猫1号')
+sc.eat('鱼')
+
+mc = MultiCat('波斯加菲猫1号')
+mc.eat('鱼')
+mc.run('50迈')
+
+```
+
