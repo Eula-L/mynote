@@ -118,4 +118,6 @@ git status //查看缓冲区状态s
 
 ![](https://liuhao-aliyun-oss.oss-cn-beijing.aliyuncs.com/1685616102812.png)
 
-测试
+## 分支
+![](https://liuhao-aliyun-oss.oss-cn-beijing.aliyuncs.com/1685619232938.png)
+
