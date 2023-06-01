@@ -115,6 +115,7 @@ git commit -m“提交描述”
 git push origin master                          //上传本地仓库主分支到云端,
 git status //查看缓冲区状态s
 ```
+
 ![](https://liuhao-aliyun-oss.oss-cn-beijing.aliyuncs.com/1685616102812.png)
 
 测试
