@@ -87,7 +87,7 @@ git的大致流程
 
 ![](https://liuhao-aliyun-oss.oss-cn-beijing.aliyuncs.com/1681570286213.png)
 
-### git基本命令
+### git命令
 
 ```bash
 git init // 常见本地仓库
