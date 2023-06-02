@@ -36,7 +36,7 @@ Trending 推送
 
 ![](https://liuhao-aliyun-oss.oss-cn-beijing.aliyuncs.com/1685542474498.png)
 
-#### README.md 
+#### README.md
 
 阅读文档，快速帮助用户了解工程和使用方式。
 
@@ -61,15 +61,15 @@ git的大致流程
 
 #### 1.账号关联，使用本地Git配置关联github的某个账号
 
-1. ssh-keygen-trsa-CIiu88777@126.com/生成本地RSA密钥串
+1. **ssh-keygen -t rsa -C 1522375287@qq.com** 生成本地RSA密钥串
 
-2. 按生成位置，打开id rsa.pub文件，复制其中的密钥字符串
+2. 按生成位置，打开id_rsa.pub文件，复制其中的密钥字符串
 
 3. 打开网站头像下拉列表->Settings->SSH and GPG key->New ssh key,为密钥编写title标题，将刚刚拷贝的密钥串粘贴到下面空白位置，保存即可
 
-4. 修改配置文件，查看配置文件git config-list
+4. 修改配置文件，查看配置文件 git config --list
 
-5. 添加修改配置文件，git config-global user.name "用户名"  git config-global user.email"邮箱"
+5. 添加修改配置文件，git config --global user.name "用户名"  git config --global user.email"邮箱"
 
 #### 2.为仓库起别名，将数据上传到指定仓库
 
@@ -81,7 +81,7 @@ git的大致流程
 
 ### git上传资源的过程
 
-![](https://liuhao-aliyun-oss.oss-cn-beijing.aliyuncs.com/1685541646114.png)
+![](https://liuhao-aliyun-oss.oss-cn-beijing.aliyuncs.com/1685698679507.png)
 
 ### git结构（之前学的）
 
@@ -118,6 +118,28 @@ git status //查看缓冲区状态s
 
 ![](https://liuhao-aliyun-oss.oss-cn-beijing.aliyuncs.com/1685616102812.png)
 
-## 分支
-![](https://liuhao-aliyun-oss.oss-cn-beijing.aliyuncs.com/1685619232938.png)
+## git三要素
 
+### 1.仓库
+
+仓库：在github中仓库是项目的基本单位，是工程容器，每个开发者将自己的项目保存管理在一个仓库中，所有工程都是在仓库中管理编辑和发布
+
+### 2.commit提交
+
+![](https://liuhao-aliyun-oss.oss-cn-beijing.aliyuncs.com/1685698997133.png)
+
+#### commit的作用
+
+1. 可以备份开发者关于代码的操作和统计修改。便于开发者回溯代码，只要开发者有良好的提交习惯，那么就可以找到任何时间节点的任何代码统计修改。
+2. 可以通过提交观察一个项目的开发流程，便于了解开发者的思想，学习开发技术。
+
+### branch分支
+
+分支概念用于工程管理，便于多人协作开发
+
+当创建一个仓库时，会默认生成一个主分支(master)或者是(main),默认情况下向仓库上传数据或代码都是存储在主分支中的
+
+![](https://liuhao-aliyun-oss.oss-cn-beijing.aliyuncs.com/1685699222914.png)
+
+待整理
+![](https://liuhao-aliyun-oss.oss-cn-beijing.aliyuncs.com/1685700192057.png)
