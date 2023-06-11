@@ -1,5 +1,4 @@
 #include <iostream>
-#include <ios>
 #include <list>
 using namespace std;
 
@@ -52,7 +51,7 @@ int addJob();
 // 更新内存空间序号
 int updateNumber();
 // 合并
-int merge();
+int merge(list<memory> &myList, list<memory>::iterator it);
 
 // 紧缩
 int retrench();
@@ -113,7 +112,7 @@ int FF(job newJob)
         {
             // 内存空间未分配，并且这个空间大于当前所需空间
             // cout<<"开发——进来了"<<endl;
-            if ((it->state == 0) && ((it->size) > newJob.size)) // 注意判断逻辑，“并且”
+            if ((it->state == 0) && ((it->size) >= newJob.size)) // 注意判断逻辑，“并且”
             {
                 // 判断是否可以分割
                 if ((it->size) - (newJob.size) >= minSize)
@@ -150,13 +149,15 @@ int FF(job newJob)
                     cout << "未发生分割！";
                 }
                 res_pos = it->start; // 原分区的起始位置就是该作业分配的空间的起始位置
-                cout << "开发——更新res_pos" << endl;
+                //cout << "开发——更新res_pos" << endl;
                 cout << "分配内存成功!内存分区号为：" << it->num << endl;
                 return res_pos;
             }
         }
         // 遍历之后，仍然没成功。
         // TODO:触发紧缩
+        retrench();
+        FF(newJob);
     }
     else
     {
@@ -245,7 +246,7 @@ int addJob()
     int res_pos = FF(addOneJob);
     if (res_pos >= 0)
     {
-        cout << "开发——内存分配成功" << endl;
+        //cout << "开发——内存分配成功" << endl;
         list<job>::iterator pos = jobTable.end();
         pos--;
         pos->start = res_pos;
@@ -253,9 +254,9 @@ int addJob()
     }
     else
     {
-        cout << "开发——内存分配失败" << endl;
+        //cout << "开发——内存分配失败" << endl;
     }
-    
+
     updateNumber();
 
     printMemoryTable();
@@ -267,12 +268,13 @@ int addJob()
 // 更新内存空间序号
 int updateNumber()
 {
-    int num=1;
+    int num = 1;
     for (list<memory>::iterator it = memoryTable.begin(); it != memoryTable.end(); it++)
     {
-        it->num=num;
+        it->num = num;
         num++;
     }
+    return 0;
 }
 // 回收作业
 
@@ -315,8 +317,70 @@ void inputSelection()
     }
 }
 // 合并
-int merge()
+int merge(list<memory> &myList, list<memory>::iterator it)
 {
+
+    if (it != myList.begin()) // 不是第一个
+    {
+        auto before = it;
+        before--;
+        if (distance(it,myList.end())!=1) // 不是最后一个
+        {
+            //it != myList.end()--
+            auto after = it;
+            after++;
+            if (before->state == 0)
+            {
+
+                if (after->state == 0)
+                {
+                    before->size += it->size + after->size;
+                    // 删除元素
+                    it = myList.erase(it);
+                    after = myList.erase(after);
+                }
+                else
+                {
+                    before->size += it->size;
+                    // 删除元素
+                    it = myList.erase(it);
+                }
+            }
+            else
+            {
+                if (after->state == 0)
+                {
+                    it->size += after->size;
+                    // 删除元素
+                    after = myList.erase(after);
+                }
+                else
+                {
+                    // 不合并
+                }
+            }
+        }
+    }
+    else // 是第一个
+    {
+        if (distance(it,myList.end())!=1) // 不是最后一个
+        {
+            auto after = it;
+            after++;
+            if (after->state == 0)
+            {
+                it->size += after->size;
+                // 删除元素
+                after = myList.erase(after);
+            }
+        }
+        else // 也是最后一个，就一个
+        {
+            //不合并
+        }
+    }
+    updateNumber();
+    return 0;
 }
 
 // 紧缩(可以优化)
@@ -347,6 +411,8 @@ int retrench()
             find_null->size = 1;
 
             // TOODO 调用合并
+            // 合并
+            merge(memoryTable, find_full);
         }
     }
 }
@@ -368,7 +434,7 @@ int recycle()
             rec_start = it->start;
             it->start = -1;
             it->state = 0; // 将作业设置为未分配
-            residualSize+=it->size;
+            residualSize += it->size;
         }
     }
     for (list<memory>::iterator it = memoryTable.begin(); it != memoryTable.end(); it++)
@@ -377,6 +443,9 @@ int recycle()
         {
             // 找到要回收的空间
             it->state = 0; // 将空间设置为未分配
+            // 调用合并
+            merge(memoryTable, it);
+            break;
         }
     }
     cout << "回收完成" << endl;
