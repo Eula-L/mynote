@@ -1,0 +1,3 @@
+/home/beichen/myhttp/Http/CMakeFiles/MyThread.dir
+/home/beichen/myhttp/Http/CMakeFiles/edit_cache.dir
+/home/beichen/myhttp/Http/CMakeFiles/rebuild_cache.dir

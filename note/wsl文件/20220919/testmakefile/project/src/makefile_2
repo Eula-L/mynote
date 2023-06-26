@@ -1,0 +1,6 @@
+#version 2.0
+
+TMP_VAR="test code"
+
+output:
+	echo ${TMP_VAR}
