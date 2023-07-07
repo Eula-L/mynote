@@ -149,17 +149,30 @@ int main()
 ```c
 void * ptr = mmap(NULL , size , PROT READIPROT WRITE , int how , int fd , 0);
 ```
+
 ### 参数
 
 ![mmap%E5%8F%82%E6%95%B0.drawio.png](https://liuhao-oss.oss-cn-beijing.aliyuncs.com/mmap%E5%8F%82%E6%95%B0.drawio.png)
 
+#### 映射方式
+共享映射 MAP_SHARED，共享映射有 ***Sync同步机制***
+私有映射 MAP_PRIVATE
+
+### 原理
+
+多进程间利用 MAP_SHARED的Sync同步机制keyi可以实现共享映射实现进程通信
+
+![1688305464094.png](https://liuhao-oss.oss-cn-beijing.aliyuncs.com/1688305464094.png)
+
+
 ### 返回值
 
 成功返回映射内存地址ptr
-失败返回MAP FAILED关键字
+失败返回MAP_FAILED关键字
 
 ## 回收
 
 ```c
 munmap(ptr，size); //释放映射内存
 ```
+
