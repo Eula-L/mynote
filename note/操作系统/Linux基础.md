@@ -9,17 +9,6 @@
 root用户：root
 root密码：LiuHao2002
 
-## vmware
-虚拟机：ubuntu22
-
-用户：beichen
-密码：2002
-
-用户：root
-密码：LiuHao2002
-
-用户：liuhao
-密码：2002
 
 ## 配置
 zsh+oh-my-zsh（主题），vim+spaceVim
@@ -53,11 +42,7 @@ beichen 2002
 
 # ssh软件
 
-## FinaShell（基于java，性能不行）
-![](https://liuhao-aliyun-oss.oss-cn-beijing.aliyuncs.com/1674258863989.png)
-用户名是ubuntu
-密码是LiuHao2002
-## xshell
+
 
 # vi
 
@@ -71,6 +56,11 @@ beichen 2002
 fast有国内仓库，安装方便，并且足够使用
 ## wsl/虚拟机中vim无法复制到windows剪贴板
 解决办法
+
+-----------
+***最新解决办法***
+- 使用vscode
+-----------
 ```$ vim --version | grep "clipboard"
 -clipboard         +keymap            +printer           +vertsplit
 +emacs_tags        +mouse_gpm         -sun_workshop      -xterm_clipboard
