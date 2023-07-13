@@ -160,7 +160,7 @@ void * ptr = mmap(NULL , size , PROT READIPROT WRITE , int how , int fd , 0);
 
 ### 原理
 
-多进程间利用 MAP_SHARED的Sync同步机制keyi可以实现共享映射实现进程通信
+多进程间利用 MAP_SHARED的Sync同步机制可以实现共享映射实现进程通信
 
 ![1688305464094.png](https://liuhao-oss.oss-cn-beijing.aliyuncs.com/1688305464094.png)
 
@@ -176,3 +176,7 @@ void * ptr = mmap(NULL , size , PROT READIPROT WRITE , int how , int fd , 0);
 munmap(ptr，size); //释放映射内存
 ```
 
+### 使用细节
+1. 确定消息结构体大小
+2. 根据消息结构体大小,确定映射文件大小。大小为消息结构体的倍数
+3. 拓展空文件，使用*截断方式*，将映射文件拓展成一个指定的大小`ftruncate(fd,sizeof(msg_t)*4096)`
